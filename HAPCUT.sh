@@ -3,7 +3,7 @@ spcodel="Rhisa1 Rhivi1 Suiame1 Suibr2 Suigr1"
 for spcode in $spcodel
 do
   ref=HAPCUT/${spcode}_MATA_denovo_concatenate_m.consensus.fasta
-  #python align_sam.py -i HD_mapping/${spcode}_MATA_denovo_concatenate.bam -r HDalignments/${spcode}_MATA_denovo_concatenate_ali.fasta -o HAPCUT/${spcode}_MATA_denovo_concatenate_m.sam
+  python align_sam.py -i HD_mapping/${spcode}_MATA_denovo_concatenate.bam -r HDalignments/${spcode}_MATA_denovo_concatenate_ali.fasta -o HAPCUT/${spcode}_MATA_denovo_concatenate_m.sam
   samtools sort -n HAPCUT/${spcode}_MATA_denovo_concatenate_m.sam | samtools fixmate - - | samtools sort -o HAPCUT/${spcode}_MATA_denovo_concatenate_sm.bam
   bcftools mpileup -A -B -x -f $ref -d 1000 HAPCUT/${spcode}_MATA_denovo_concatenate_sm.bam | bcftools call -Ov -m > HAPCUT/${spcode}_MATA_HAPCUT.vcf
   extractHAIRS --bam HAPCUT/${spcode}_MATA_denovo_concatenate_sm.bam --VCF HAPCUT/${spcode}_MATA_HAPCUT.vcf --out HAPCUT/${spcode}_fragment_file
