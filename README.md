@@ -1,5 +1,11 @@
 # SUIMAT_pub
 
+## DrawVarBar.R
+functions for drawing variants position bar as in Figure 2  
+
+## DrawVarBar_run.R
+run DrawVarBar.R with data in HDalignments/  
+
 ## align_sam.py
 usage: python align_sam.py -i <input .sam file> -r <two aligned consensus sequences in .fasta> -o <output .sam file>  
 align and adjust position coordinates for two sam files  
@@ -28,7 +34,8 @@ HD MAT alleles from different approaches
 [species]_genome_concatenate.fasta: two alleles from mapping variant detection  
 
 ## HDalignments/
-[...]_ali.fasta: MAFFT alignment of the according sequences in HDcontigs/  
+[...]_ali.fasta: MAFFT alignment of the according genomes in HDcontigs/  
+[...]_MATA_allseq_ali.fasta: MAFFT alignment of locally de novo assembled sequences and mapping variant detection of the according genomes for DrawVarBar_run.R  
 HD1-HD2_denovo.fasta: collection of all locally de novo assembled sequences in species which are considered the haplotypes in the genomes  
 HD1_aa.fasta: HD1 gene amino acid sequences from locally de novo assembled sequences in species  
 HD2_aa.fasta: HD2 gene amino acid sequences from locally de novo assembled sequences in species  
